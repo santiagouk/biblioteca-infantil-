@@ -361,7 +361,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!perfilUsuarioActual) return
     document.getElementById('form-reportar-poema').reset()
     document.getElementById('alerta-error-reporte').classList.add('d-none')
-    modalReportarPoema.show()
+
+    document.getElementById('modal-reportar-poema').addEventListener('hidden.bs.modal', () => {
+      setTimeout(() => {
+        if (poemaActual) modalVerPoema.show()
+      }, 50)
+    }, { once: true })
+
+    const abrirReporte = () => modalReportarPoema.show()
+    document.getElementById('modal-ver-poema').addEventListener('hidden.bs.modal', abrirReporte, { once: true })
+    modalVerPoema.hide()
   })
 
   document.getElementById('form-reportar-poema').addEventListener('submit', async (evento) => {
