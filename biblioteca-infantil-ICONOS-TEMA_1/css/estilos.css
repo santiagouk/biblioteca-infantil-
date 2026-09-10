@@ -593,6 +593,10 @@ body > *:not(#fondo-blobs):not(#fondo-color-libro) {
   font-size: 1.05rem;
   line-height: 1.85;
   color: var(--texto);
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  overflow-wrap: anywhere;
 }
 
 /* Selector de estrellas interactivo (calificar un poema) */
